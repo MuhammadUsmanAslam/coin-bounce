@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const authController = require("../controller/authController");
+const blogController = require("../controller/blogController");
 const auth = require("../middlewares/auth");
 
 router.get("/", (req, res) => {
@@ -20,13 +21,21 @@ router.post("/logout", auth, authController.logout);
 router.get("/refresh", authController.refresh);
 
 
-// Blog
-// CRUD operations
-// Create
-// Read All
-// Read by ID
-// Update
-// Delete
+// Blog CRUD operations
+// Create a new blog
+router.post('/blog', auth, blogController.create);
+
+// Read All blogs
+router.get('/blog/all', auth, blogController.getAll);
+
+// Read one blog by ID
+router.get('/blog/:id', auth, blogController.getById);
+
+// Update one blog by ID
+router.put('/blog/', auth, blogController.update);
+
+// Delete one blog by ID
+router.delete('/blog/:id', auth, blogController.delete);
 
 // Comment
 // Create
