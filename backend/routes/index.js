@@ -3,10 +3,6 @@ const authController = require("../controller/authController");
 const blogController = require("../controller/blogController");
 const auth = require("../middlewares/auth");
 
-router.get("/", (req, res) => {
-    res.json({msg: "/home"});
-});
-
 // User
 // 1 Login
 router.post("/login", authController.login);

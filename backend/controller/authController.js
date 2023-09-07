@@ -160,9 +160,9 @@ const authController = {
             next(error);
         }
 
-        // Clear Cookies
-        res.cookie('refreshToken');
-        res.cookie('accessToken');
+        // Clear Cookies in response
+        res.clearCookie('refreshToken');
+        res.clearCookie('accessToken');
 
         // Send response to the user
         res.status(200).json({user: null, auth: false});
