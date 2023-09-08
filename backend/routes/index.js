@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const authController = require("../controller/authController");
 const blogController = require("../controller/blogController");
+const commentController = require("../controller/commentController");
 const auth = require("../middlewares/auth");
 
 // User
@@ -34,7 +35,10 @@ router.put('/blog/', auth, blogController.update);
 router.delete('/blog/:id', auth, blogController.delete);
 
 // Comment
-// Create
-// Read
+// Create Comment
+router.post('/comment', auth, commentController.create);
+
+// Get Comment by Blog Id
+router.get('/comment/:id', auth, commentController.getById);
 
 module.exports = router;
